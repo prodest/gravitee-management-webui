@@ -30,7 +30,7 @@ class InstancesService {
   }
 
   getMonitoringData(id: string, gatewayId: string): any {
-    return this.$http.get(this.instancesURL + id + '/monitoring/' + gatewayId);
+    return this.$http.get(this.instancesURL + id + '/monitoring/' + gatewayId, {silentCall: true} as ng.IRequestShortcutConfig);
   }
 }
 
