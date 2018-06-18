@@ -28,7 +28,8 @@ class ViewsController {
     private NotificationService: NotificationService,
     private $q: ng.IQService,
     private $mdEditDialog,
-    private $mdDialog: angular.material.IDialogService) {
+    private $mdDialog: angular.material.IDialogService,
+    private $state: ng.ui.IStateService) {
     'ngInject';
 
     this.viewsToCreate = [];
@@ -203,6 +204,10 @@ class ViewsController {
         }
       }
     });
+  }
+
+  selectView(view) {
+    this.$state.go('management.settings.view', {viewId: view.id})
   }
 }
 

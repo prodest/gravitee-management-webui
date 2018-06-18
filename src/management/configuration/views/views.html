@@ -36,7 +36,7 @@
     </tr>
     </thead>
     <tbody md-body>
-    <tr md-row ng-repeat="view in $ctrl.views | orderBy:view.order">
+    <tr md-row ng-repeat="view in $ctrl.views | orderBy:view.order" ng-click="$ctrl.selectView(view)">
       <td permission permission-only="'portal-view-u'"
           md-cell ng-click="$ctrl.editName($event, view)" ng-class="{'gravitee-placeholder': !view.name}">
         {{view.name || 'Add a name'}}
@@ -90,3 +90,11 @@
     </tbody>
   </table>
 </md-table-container>
+
+<md-button permission permission-only="'portal-view-c'"
+           aria-label="Add view"
+           class="md-fab md-fab-bottom-right gravitee-add-button"
+           ui-sref="management.settings.viewnew">
+  <md-tooltip md-direction="top" md-visible="false">Add a new view</md-tooltip>
+  <ng-md-icon icon="add"></ng-md-icon>
+</md-button>
